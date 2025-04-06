@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply antialiased bg-background text-foreground;
+    font-family: 'Outfit', sans-serif;
+    background-image: radial-gradient(circle at top, #fefce8 0%, #fff7ed 100%);
+    min-height: 100vh;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+}
+
+@layer components {
+  .groovy-text {
+    @apply font-['Righteous',sans-serif] tracking-wide;
+  }
+  
+  .peace-border {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  
+  .peace-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+      #f06, #f90, #ff3, #6c0, #09f, #63f, #f06);
+    border-radius: inherit;
+    z-index: -1;
+    animation: border-rotate 6s linear infinite;
+  }
+  
+  @keyframes border-rotate {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 130% 50%;
+    }
+  }
+  
+  .flower-button {
+    @apply relative overflow-hidden rounded-full shadow-md hover:shadow-lg transition-all;
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  }
+  
+  .hippie-gradient {
+    @apply bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-300;
+  }
+}
